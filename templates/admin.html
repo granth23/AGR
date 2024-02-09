@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('../static/images/vm.jpg'); /* Relative path to the image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff; /* Text color */
+            height: 100vh; /* Set height to cover the entire viewport */
+        }
+
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .input-field {
+            width: 400px; /* Increased width */
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            background-color: rgba(0, 0, 0, 0.75); /* Dark semi-transparent background */
+            color: #fff; /* Text color */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.75); /* Dark shadow */
+            margin-bottom: 10px; /* Add some margin between inputs */
+        }
+
+        .input-field:focus {
+            outline: none;
+        }
+
+        .submit-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            background-color: #101010dc; /* Dark color for the button */
+            color: #fff; /* Text color */
+            cursor: pointer;
+        }
+
+        .submit-button:hover {
+            background-color: #242424; /* Darker shade on hover */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <form method="post">
+        {% for page, data in page_data.items() %}
+            <label for="{{ page }}">{{ page }}:</label>
+            <input type="text" id="{{ page }}" name="{{ page }}" value="{{ data }}" class="input-field" required><br>
+        {% endfor %}
+        <button type="submit" class="submit-button">Save Changes</button>
+    </form>
+</div>
+
+</body>
+</html>
